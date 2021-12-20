@@ -55,6 +55,6 @@ INSERT INTO sakila.city (city_id, city, country_id)
 VALUES ('601','Manila','75');
 
 
-9. Update the timestamp to the current date/time for the new store you entered in the previous question. 
+9. Update the time stamp to the current date/time for the new store you entered in the previous question. 
 
 10. Delete the new store. 
