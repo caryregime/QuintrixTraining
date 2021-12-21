@@ -1,0 +1,25 @@
+Bug Report #4
+
+Title: The payment method for order payment is "Pay by bank wire" and "Pay by check" instead of "Credit Card/Debit Card" and "Net Banking" 
+Environment: Production Environment
+Severity: Major
+Priority: High
+Assigned to: Developer
+Reported by: Cary Peras
+Reported on: 12/21/2021
+Status: New
+Pre-condition: User is in home page
+Steps to reproduce: 
+1. Choose an item to buy
+2. Click "Add to card" 
+3. Pop-up message displayed
+4. Click "Proceed to checkout"
+5. User is navigated to "Summary" page
+6. Click "Proceed to checkout"
+7. User is navigated to "Address" page
+8. Click "Proceed to checkout"
+9. User is navigated to "Shipping" page
+10. Click "Proceed to checkout"
+Expected Result: According to the BRD, the payment method should be "Credit Card/Debit Card" and "Net Banking" 
+Actual Result: The payment method for order payment is "Pay by bank wire" and "Pay by check"
+Attachment: /QuintrixTraining/bugReport/BugReport4.png

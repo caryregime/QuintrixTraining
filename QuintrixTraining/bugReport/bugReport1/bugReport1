@@ -1,0 +1,19 @@
+Bug Report #1
+
+Title: Loading symbol is showing whenever the user uses the drop down sort search on category page
+Environment: Production Environment
+Severity: Moderate
+Priority: Medium
+Assigned to: Developer
+Reported by: Cary Peras
+Reported on: 12/20/2021
+Status: New
+Steps to reproduce: 
+1. Login with valid user credentials (user: funnier@hottie.com || password: 12345)
+2. User is navigated to Home page
+3. Click "Dresses" on header
+4. User is navigated to "Dresses" category page
+4. Choose "Reference: Lowest first" on "Sort" drop down search box
+Expected Result: Items on the Category page is sorted according to the "Sort" search box
+Actual Result: Loading symbol is showing. Items on Category page is not sorted
+Attachment: /QuintrixTraining/bugReport/BugReport1.png
