@@ -10,12 +10,12 @@ import org.testng.Assert;
 public class ReadPropertyFile {
 
 	public static void main(String[] args) throws FileNotFoundException {
-		final String filepath = "C:\\Users\\Regime Cary\\git\\QuintrixTraining\\Automation\\src\\test\\resources\\config.properties";
+		final String filepath = System.getProperty("user.dir")+"\\src\\test\\resources\\config.properties";
 		Properties prop=new Properties();
 		FileInputStream ip= new 
 				
 		FileInputStream(filepath);
-		//		This path is not working: FileInputStream("Automation\\src\\test\\resources\\config.properties");
+		
 		try {
 			prop.load(ip);
 		} catch (IOException e) {
