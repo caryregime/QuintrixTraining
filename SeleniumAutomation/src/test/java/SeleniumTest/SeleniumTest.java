@@ -27,9 +27,11 @@ public class SeleniumTest {
 
 	@BeforeMethod
 	public void setup() {
-		String driverpath = "C:\\Users\\Regime Cary\\eclipse-quintrix-training\\driver\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver", driverpath);
+		//String driverpath = "C:\\Users\\Regime Cary\\eclipse-quintrix-training\\driver\\chromedriver.exe";
+		//System.setProperty("webdriver.chrome.driver", driverpath);
+		String driverpath = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\chromedriver.exe");
 		this.driver = new ChromeDriver();
+		this.driver.manage().window().maximize();
 		this.driver.navigate().to(url);
 	}
 	
