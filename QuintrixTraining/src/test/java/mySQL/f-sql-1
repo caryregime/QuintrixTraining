@@ -81,10 +81,10 @@ START TRANSACTION;
 
 SET SQL_SAFE_UPDATES = 0;
 
-UPDATE store AS s
-INNER JOIN address AS a ON a.address_id = s.address_id
+UPDATE sakila.store AS s
+INNER JOIN sakila.address AS a ON a.address_id = s.address_id
 SET s.last_update = CURDATE()
-WHERE a.address = '110 Main';
+WHERE a.address = '123 Main St.';
 
 SET SQL_SAFE_UPDATES = 1;
 
@@ -97,9 +97,9 @@ START TRANSACTION;
 SET SQL_SAFE_UPDATES = 0;
 
 DELETE s.*
-FROM store AS s
-INNER JOIN address AS a ON a.address_id = s.address_id
-WHERE a.address = '110 Main';
+FROM sakila.store AS s
+INNER JOIN sakila.address AS a ON a.address_id = s.address_id
+WHERE a.address = '123 Main St.';
 
 SET SQL_SAFE_UPDATES = 1;
 
