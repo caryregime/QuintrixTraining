@@ -51,10 +51,56 @@ END
 CALL GetInventoryIDOfAlienCenter()
 
 8. Insert a new store. Ensure that you use TRANSACTION. (This one is possible but it's tough! Pay attention to constraints and the order that you are inserting data.) 
-INSERT INTO sakila.city (city_id, city, country_id)
-VALUES ('601','Manila','75');
 
+START TRANSACTION;
 
-9. Update the timestamp to the current date/time for the new store you entered in the previous question. 
+INSERT INTO sakila.staff (first_name, last_name, address_id, email, store_id, `active`, username) 
+VALUES ("Mich", "Elle", "20", "cute@gmail.com", "2", "1", "cutemich");
+
+SET @staffId = LAST_INSERT_ID();
+
+INSERT INTO sakila.address (address, district, city_id, phone, location) 
+VALUES ('123 Main St.', 'Five', 75, 123456789, ST_GeomFromText('POINT(1 1)'));
+
+SET @addressId = LAST_INSERT_ID();
+
+INSERT INTO sakila.store (manager_staff_id, address_id) 
+VALUES (@staffId, @addressId);
+
+SET @storeId = LAST_INSERT_ID();
+
+UPDATE sakila.staff 
+SET store_id = @storeId
+WHERE staff_id = @staffId;
+
+ROLLBACK;
+
+9. Update the time stamp to the current date/time for the new store you entered in the previous question. 
+
+START TRANSACTION;
+
+SET SQL_SAFE_UPDATES = 0;
+
+UPDATE sakila.store AS s
+INNER JOIN sakila.address AS a ON a.address_id = s.address_id
+SET s.last_update = CURDATE()
+WHERE a.address = '123 Main St.';
+
+SET SQL_SAFE_UPDATES = 1;
+
+ROLLBACK;
 
 10. Delete the new store. 
+
+START TRANSACTION;
+
+SET SQL_SAFE_UPDATES = 0;
+
+DELETE s.*
+FROM sakila.store AS s
+INNER JOIN sakila.address AS a ON a.address_id = s.address_id
+WHERE a.address = '123 Main St.';
+
+SET SQL_SAFE_UPDATES = 1;
+
+ROLLBACK;
