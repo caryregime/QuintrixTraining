@@ -1,0 +1,60 @@
+1. Get 10 cities in descending alphabetical order.
+
+Select * From sakila.city c 
+Order By c.city ASC 
+limit 10;
+
+2. Get all films with "airplane" in the title.
+
+Select * From sakila.film f 
+Where f.title LIKE '%airplane%';
+
+3. Get the highest payment amount.
+
+Select * From sakila.payment p
+Where p.amount = (SELECT MAX(amount) FROM sakila.payment);
+
+4. Get the number of records in the customer table for store id #1.
+
+SELECT COUNT(*) FROM sakila.customer c
+Where c.store_id = '1';
+
+5. Get all payment records for customer with email address "NANCY.THOMAS@sakilacustomer.org"
+
+SELECT p.payment_id, p.customer_id, p.staff_id, p.rental_id, p.amount, p.payment_date, p.last_update 
+FROM sakila.payment p
+INNER JOIN sakila.customer c
+ON p.customer_id = c.customer_id
+Where c.email = 'NANCY.THOMAS@sakilacustomer.org';
+
+6. Use a View to get the film info for actor Bob Fawcett.
+
+SELECT f.film_id, f.title, f.description, f.release_year, f.language_id, f.original_language_id, f.rental_duration, f.rental_rate, f.length, f.replacement_cost, f.rating, f.special_features, f.last_update
+FROM sakila.film f
+INNER JOIN sakila.film_actor fa
+ON f.film_id = fa.film_id
+INNER JOIN sakila.actor a
+ON fa.actor_id = a.actor_id
+Where a.first_name = 'Bob' AND a.last_name = 'Fawcett';
+
+7. Use a Stored Procedure to get the 4 inventory ids for the film "Alien Center" at Store #2. 
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `GetInventoryIDOfAlienCenter`()
+BEGIN select i.inventory_id, f.film_id, f.title, f.description, i.store_id
+from sakila.film f
+inner join sakila.inventory i
+on f.film_id = i.film_id
+where f.title = 'Alien Center' AND i.store_id = '2'
+limit 4;
+END
+
+CALL GetInventoryIDOfAlienCenter()
+
+8. Insert a new store. Ensure that you use TRANSACTION. (This one is possible but it's tough! Pay attention to constraints and the order that you are inserting data.) 
+INSERT INTO sakila.city (city_id, city, country_id)
+VALUES ('601','Manila','75');
+
+
+9. Update the timestamp to the current date/time for the new store you entered in the previous question. 
+
+10. Delete the new store. 
