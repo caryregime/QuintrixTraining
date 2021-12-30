@@ -1,0 +1,23 @@
+Bug Report #3
+
+Title: There's no feature for the buyer to check the shipping availability by PIN code on Shipping page
+Environment: Production Environment
+Severity: Medium
+Priority: Medium
+Assigned to: Developer
+Reported by: Cary Peras
+Reported on: 12/21/2021
+Status: New
+Pre-condition: User is in home page
+Steps to reproduce: 
+1. Choose an item to buy
+2. Click "Add to card" 
+3. Pop-up message displayed
+4. Click "Proceed to checkout"
+5. User is navigated to "Summary" page
+6. Click "Proceed to checkout"
+7. User is navigated to "Address" page
+8. Click "Proceed to checkout"
+Expected Result: According to the BRD, buyer must be able to check the shipping availability by PIN code on Shipping page
+Actual Result: There's no feature for the buyer to check the shipping availability by PIN code on Shipping page
+Attachment: /QuintrixTraining/bugReport/BugReport3.png
