@@ -1,6 +1,7 @@
 package SeleniumTest;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -34,7 +35,15 @@ public class SeleniumTest {
 		//Firefox configuration
 		//String driverpath = System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\geckodriver.exe");
 		//this.driver = new FirefoxDriver();
-		String driverpath = System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\chromedriver.exe");
+		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\chromedriver.exe");
+		
+		String os = System.getProperty("os.name").toLowerCase();
+		if(os.contains("win")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\src\\test\\resources\\chromedriver.exe");
+		}
+		else if(os.contains("mac")) {
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/test/resources/chromedriver");
+		}
 		this.driver = new ChromeDriver();
 		this.driver.manage().window().maximize();
 		this.driver.navigate().to(url);
