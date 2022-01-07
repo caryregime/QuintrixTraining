@@ -13,8 +13,8 @@ public class progressBar extends TestBase{
 	public void loadprogressBar() {
 		progressBarPage progress = new progressBarPage(getDriver());
 		super.gotoProgressBar();
-		new progressBarPage(getDriver()).startProgressBar();	
-		new progressBarPage(getDriver()).resetProgressBar();
+		progress.startProgressBar();
+		progress.resetProgressBar();
 		Assert.assertTrue(progress.resetProgressBar());
 		System.out.println("Progress Bar is done");
 	}
