@@ -15,14 +15,13 @@ public class ReadCSVFile {
 	public static void main(String[] args) throws FileNotFoundException {
 		try {
 
-			//String csvfilepath = "C:\\Users\\Regime Cary\\git\\QuintrixTraining\\Automation\\src\\test\\resources\\basses.csv";
 			String csvfilepath = System.getProperty("user.dir")+"\\src\\test\\resources\\basses.csv";
 			BufferedReader lineRead = new BufferedReader(new FileReader(csvfilepath));
 			CSVParser records = CSVParser.parse(lineRead,CSVFormat.EXCEL);
-			Map<String,ReadCSVFileBasses> MakeModelMap = new HashMap<String,ReadCSVFileBasses>();
+			Map<String,Bass> MakeModelMap = new HashMap<String,Bass>();
 
 			for(CSVRecord record:records) {
-				ReadCSVFileBasses csvbasses = new ReadCSVFileBasses();
+				Bass csvbasses = new Bass();
 
 				csvbasses.setMake(record.get(0));
 				csvbasses.setModel(record.get(1));
@@ -33,7 +32,7 @@ public class ReadCSVFile {
 			Collection collection=MakeModelMap.values();
 			Iterator iterator=collection.iterator();
 			while(iterator.hasNext()!=false) {
-				ReadCSVFileBasses csvfile = (ReadCSVFileBasses) iterator.next();
+				Bass csvfile = (Bass) iterator.next();
 				System.out.println(csvfile.getMake()+" "+csvfile.getModel());
 			}
 
