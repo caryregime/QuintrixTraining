@@ -1,5 +1,6 @@
 package progressBar;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,9 +9,10 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.sun.tools.javac.util.Assert;
+import framework.PageObjectBase;
 
 public class progressBarPage extends PageObjectBase{
+	private String urlProgressBar = "https://demoqa.com/progress-bar";
 	WebDriverWait wait=new WebDriverWait(driver,20);
 
 	protected progressBarPage(WebDriver driver) {
@@ -32,5 +34,23 @@ public class progressBarPage extends PageObjectBase{
 		return element.isDisplayed();
 	}
 
-
+	public void gotoProgressBar() {
+		String Header = "Progress Bar";
+		this.driver.navigate().to(urlProgressBar);
+		String actualHeader = driver.findElement(By.className("main-header")).getText();
+		Assert.assertEquals("We reached Progress Bar Page",Header, actualHeader);
+		}
+	
+	public void gotoElements() {
+		driver.findElement(By.xpath("//div[@class=\"card-body\"]//h5[normalize-space(text())=\"Elements\"]")).click();
+	}
+	
+	public void gotoWidgets() {
+		driver.findElement(By.xpath("//div[@class=\"card-body\"]//h5[normalize-space(text())=\"Widgets\"]")).click();
+	}
+	
+	public void gotoTextbox() {
+		gotoElements();
+		driver.findElement(By.cssSelector("span.navbar-toggler-icon"));
+	}
 }
