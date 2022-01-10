@@ -1,0 +1,125 @@
+http://automationpractice.com/index.php
+Test Plan:
+Automation Practice Web site
+Prepared by:
+Regime Cary Peras
+12/27/2021
+
+------------
+
+Table of Contents
+A. Introduction
+	A.1 Objectives
+B. Scope
+	B.1 In Scope Functionality
+	B.2 Out of Scope Functionality 
+C. System Perspective
+	C.1 Assumptions
+	C.2 Risks
+D. Test Approach
+	D.1 Test Automation
+E. Test Environment
+F. Milestone/Deliverables
+	F.1 Test Schedule
+	F.2 Deliverables
+	
+-------------
+
+A. Introduction
+	The Test Plan has been created to document and track the necessary information required to effectively 
+	define the approach to be used in the testing of Automation Practice E-Commerce Web-site.
+		
+		A.1 Objective 
+		Automation Practice E-Commerce Web-site is an e-commerce web-site that let the users shop and browse products online and be able to track its shipment.
+		This web-site is also made for the business owners to manage their products and be able to ship it to the buyer's address.
+		
+B. Scope
+	The scope of the project is to design and develop an online e-commerce web-site for apparels. Customers will be able to use the front-end web-site for searching 
+	the apparels and place the order by making online payment of the order in advance. Web based admin panel/ backend will help admin user i.e. business owner to manage the products, 
+	categories, prices and orders placed by the customers.
+
+		B.1 In-Scope Functionality
+			B.1.a Buyer
+					- Login
+					- Registration
+					- Search products
+					- Product listing and search results 
+					- Product details with available variations
+					- Add to cart 
+					- Add to wish list
+					- Checkout and Online payment of the orders
+					- Share products on social media
+					- Place the order
+					- My account
+					- Order history
+					- Order tracking
+					
+			B.1.b Admin
+					- Ability to create/edit/delete products
+					- Manage product categories and sub-categories
+					- Manage product catalog
+					- Manage orders
+					- Manage customers
+					- Manage shipping
+					- Manage payments
+					- Manage roles/ permissions
+					- CMS pages management
+					- Statistics and reports
+					
+		B.2 Out of Scope Functionality
+			- Ordering customized products
+			- Real time order tracking
+			- Cash On Delivery option for buyers
+			
+C. System Perspective
+
+		C.1 Assumptions
+			- Inventory (physical storage/ warehouse) of products are already established.
+			- Admin is will manage the products catalog with product codes i.e. SKU.
+			- Products with custom size and colors are not going to be sold on web-site.
+			- Price of the products will be in USD.
+			- Web-site will accept the orders from US country only.
+			
+		C.2 Risk
+			- Training will be required for employees regarding use of system.
+
+D. Test Approach
+	The project is using an agile approach, with weekly iterations. At the end of each week 
+	the requirements identified for that iteration will be delivered to the team and will be tested.
+	
+		D.1 Test Automation
+			Automation Practice E-Commerce Web-site will have Web Automation Sanity and Regression Test.
+			
+E. Test Environment
+	A new server is required for the web server, the application and the database.
+
+F. Milestone
+	F.1 Test Schedule
+		The initial test schedule follows:
+		
+		TASK NAME
+			Test Planning 
+				Review Requirements documents
+				Create initial test estimates
+			Staff and train new test resources
+			First deploy to QA test environment
+			Functional Testing
+			Second deploy to QA test environment
+			Functional Testing
+			Back-end Testing
+			Performance Testing
+			System testing
+			Regression Testing
+			UAT
+			Resolution of final defects and final build testing
+			Release to Production
+			
+	F.2 Deliverables
+		
+		DELIVERABLE				FOR											DATE/MILESTONE
+		Test Plan				Project Manager; QA Director; Test Team
+		Traceability Matrix		Project Manager; QA Director; Test Team
+		Test Results			Project Manager
+		Test Status Report		QA Manager, QA Director
+		Metrics					All team members
+			
