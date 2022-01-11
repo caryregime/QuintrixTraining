@@ -1,7 +1,11 @@
 package controlExtension;
 
+import java.util.List;
+
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ControlExtensionPage{
 
@@ -36,5 +40,21 @@ public class ControlExtensionPage{
 		String value = this.element.getAttribute("value");
 		System.out.println(value);
 		return null;
+	}
+
+	public void setValueDropDown(String string, WebElement selectmenu) {
+		Select option = new Select(selectmenu);
+		option.selectByVisibleText(string);
+	}
+
+	public String getValueDropDown(WebElement selectmenu) {
+		Select option = new Select(selectmenu);
+		return option.getFirstSelectedOption().getText();
+	}
+
+	public void getOptions(List<WebElement> selectmenu) {
+		for(int i=0;i<selectmenu.size();i++){
+			System.out.println(selectmenu.get(i).getText());
+		}
 	}
 }
