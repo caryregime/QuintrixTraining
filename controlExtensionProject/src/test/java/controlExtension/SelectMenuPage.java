@@ -39,5 +39,4 @@ public class SelectMenuPage extends PageObjectBase{
 		new ControlExtensionPage(selectmenu).getOptions(selectoptions);
 		
 	}
-
 }
