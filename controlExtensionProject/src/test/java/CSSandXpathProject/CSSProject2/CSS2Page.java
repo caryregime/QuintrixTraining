@@ -1,4 +1,4 @@
-package CSSProject2;
+package CSSandXpathProject.CSSProject2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

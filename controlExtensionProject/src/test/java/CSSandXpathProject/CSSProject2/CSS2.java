@@ -1,4 +1,4 @@
-package CSSProject2;
+package CSSandXpathProject.CSSProject2;
 import framework.TestBase;
 
 import java.util.List;
