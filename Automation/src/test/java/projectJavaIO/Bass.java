@@ -16,7 +16,4 @@ public class Bass {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	
-	
-
 }
