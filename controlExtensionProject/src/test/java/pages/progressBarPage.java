@@ -36,4 +36,3 @@ public class progressBarPage extends PageObjectBase{
 		return element.isDisplayed();
 	}
  }
-}
