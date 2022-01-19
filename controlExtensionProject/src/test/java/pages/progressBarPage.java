@@ -35,5 +35,5 @@ public class progressBarPage extends PageObjectBase{
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("resetButton")));
 		return element.isDisplayed();
 	}
-	
+ }
 }

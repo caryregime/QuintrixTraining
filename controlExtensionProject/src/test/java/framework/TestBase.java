@@ -5,6 +5,7 @@ import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,25 +13,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public abstract class TestBase {
 
 	private ChromeDriver driver;
-	private String url = "https://demoqa.com/";
-	private String urlProgressBar = "https://demoqa.com/progress-bar";
 	protected WebDriver getDriver() {
 		return this.driver;
-	}
-	
-	public void gotoProgressBar() {
-		String Header = "Progress Bar";
-		this.driver.navigate().to(urlProgressBar);
-		String actualHeader = driver.findElementByClassName("main-header").getText();
-		Assert.assertEquals("We reached Progress Bar Page",Header, actualHeader);
-		}
-	
-	public void gotoElements() {
-		driver.findElementByXPath("//div[@class=\"card-body\"]//h5[normalize-space(text())=\"Elements\"]").click();
-	}
-	
-	public void gotoWidgets() {
-		driver.findElementByXPath("//div[@class=\"card-body\"]//h5[normalize-space(text())=\"Widgets\"]").click();
 	}
 	
 	public void setup() {
