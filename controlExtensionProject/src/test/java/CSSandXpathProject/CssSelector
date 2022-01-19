@@ -1,0 +1,26 @@
+1. Page:/text-box. Write a selector that will return the ‘Full Name’ textbox using the ID attribute. Hint: This element has the ‘input’ tag.
+
+Answer: input#userName
+
+2. Page: /buttons. Write a selector that will return all 3 buttons shown below.
+
+Answer: button.btn.btn-primary
+
+3. Page:/buttons. Write a selector that will return the span element in the footer.
+
+Answer: footer > span
+
+4. Page:/menu.Write a selector that will return the 3 list item elements in the unordered list.
+
+Answer: ul[id=nav]>li  
+
+5. Page: /select-menu. Write a selector that will get the option element where value = 4.
+Answer: select#oldSelectMenu > option[value="4"]
+
+6. Page: /slider. Write the JavaScript to get the value for the element with id=sliderValue.
+
+Answer: document.getElementById("sliderValue").value;
+
+7. Page: /text-box. Write the JavaScript to set the value for the element with id=username.
+
+Answer: document.getElementById("username").value = "Mary Mary";

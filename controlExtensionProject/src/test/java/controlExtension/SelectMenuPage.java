@@ -8,16 +8,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import framework.PageObjectBase;
+import framework.SelectMenuControl;
 
 public class SelectMenuPage extends PageObjectBase{
 
 	private static final String URL = "https://demoqa.com/select-menu";
 	@FindBy(how = How.ID, using = "oldSelectMenu")
 	private WebElement selectmenu;
-	
+
 	@FindBy(how = How.ID, using = "oldSelectMenu")
 	private List<WebElement> selectoptions;
-	
+
 	public SelectMenuPage(WebDriver driver) {
 		super(driver);
 	}
@@ -27,16 +28,17 @@ public class SelectMenuPage extends PageObjectBase{
 		return this;
 	}
 
-	public void setValue(String color) {
-		new ControlExtensionPage(selectmenu).setValueDropDown(color, selectmenu);
+	public SelectMenuPage setValue(String color) {
+		new SelectMenuControl(selectmenu).setValueDropDown(color, selectmenu);
+		return this;
 	}
 
 	public String getValue() {
-		return new ControlExtensionPage(selectmenu).getValueDropDown(selectmenu);
+		return new SelectMenuControl(selectmenu).getValueDropDown(selectmenu);
 	}
 
 	public void getOptions() {
-		new ControlExtensionPage(selectmenu).getOptions(selectoptions);
-		
+		new SelectMenuControl(selectmenu).getOptions(selectoptions);
+
 	}
 }

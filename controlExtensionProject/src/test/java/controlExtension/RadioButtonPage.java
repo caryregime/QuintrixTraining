@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import framework.ButtonControl;
 import framework.PageObjectBase;
 
 public class RadioButtonPage extends PageObjectBase{
@@ -28,19 +29,20 @@ public class RadioButtonPage extends PageObjectBase{
 		return this;
 	}
 
-	public void select(String btn) {
-		if(btn == "Yes") {
-			new ControlExtensionPage(btnYes).select();
-		}
-		else if(btn == "Impressive") {
-			new ControlExtensionPage(btnImpressive).select();
-		}
-		else if(btn == "No") {
-			new ControlExtensionPage(btnNo).select();
-		}
+	public RadioButtonPage select_yes(String btn) {
+		new ButtonControl(btnYes).select_yes(btn);
+		return this;
+	}
+	public RadioButtonPage select_no(String btn) {
+		new ButtonControl(btnNo).select_no(btn);
+		return this;
+	}
+	public RadioButtonPage select_impressive(String btn) {
+		new ButtonControl(btnImpressive).select_impressive(btn);
+		return this;
 	}
 
 	public void getSelected() {
-		new ControlExtensionPage(btnselected).getSelected();
+		new ButtonControl(btnselected).getSelected();
 	}
 }

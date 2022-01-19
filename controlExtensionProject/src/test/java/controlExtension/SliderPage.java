@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
 import framework.PageObjectBase;
+import framework.SliderControl;
 
 public class SliderPage extends PageObjectBase{
 
@@ -13,6 +14,9 @@ public class SliderPage extends PageObjectBase{
 
 	@FindBy(how = How.ID, using = "sliderValue")
 	private WebElement slidervalue;
+
+	@FindBy(how = How.CSS, using = "input[type='range']")
+	private WebElement sliderElement;
 	
 	protected SliderPage(WebDriver driver) {
 		super(driver);
@@ -23,11 +27,12 @@ public class SliderPage extends PageObjectBase{
 		return this;
 	}
 
-	public void setValue(String string) {
-		new ControlExtensionPage(slidervalue).setValue(string);
+	public SliderPage setValue(String value) {
+		new SliderControl(sliderElement, driver).setValue(value);
+		return this;
 	}
 
 	public String getValue() {
-		return new ControlExtensionPage(slidervalue).getValue();
+		return slidervalue.getAttribute("value");
 	}
 }

@@ -1,11 +1,11 @@
 package controlExtension;
 
-import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import framework.LinkControl;
 import framework.PageObjectBase;
 
 public class LinkPage extends PageObjectBase{
@@ -14,7 +14,7 @@ public class LinkPage extends PageObjectBase{
 	private WebElement linknocontent;
 	@FindBy(how = How.ID, using = "linkResponse")
 	private WebElement linkresponse;
-	
+
 	protected LinkPage(WebDriver driver) {
 		super(driver);
 	}
@@ -24,14 +24,14 @@ public class LinkPage extends PageObjectBase{
 		return this;
 	}
 
-	public void click(String link) {
-		new ControlExtensionPage(linknocontent).click();
+	public LinkPage click(String link) {
+		new LinkControl(linknocontent).click();
+		return this;
 	}
 
-	public void isClicked() {
-		String expectedResponse = "Link has responded with staus 204 and status text No Content";
-		String actualResponse = new ControlExtensionPage(linkresponse).isClicked();
-		Assert.assertEquals(expectedResponse,actualResponse);
+	public String isClicked() {
+		String actualResponse = new LinkControl(linkresponse).isClicked();
+		return actualResponse;
 	}
 
 }
