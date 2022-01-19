@@ -1,4 +1,4 @@
-package controlExtension;
+package pages;
 
 import java.util.List;
 

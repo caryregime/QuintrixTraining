@@ -1,4 +1,4 @@
-package controlExtension;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,7 +20,7 @@ public class RadioButtonPage extends PageObjectBase{
 	@FindBy(how = How.XPATH, using = "//p[@class='mt-3']")
 	private WebElement btnselected;
 
-	protected RadioButtonPage(WebDriver driver) {
+	public RadioButtonPage(WebDriver driver) {
 		super(driver);
 	}
 

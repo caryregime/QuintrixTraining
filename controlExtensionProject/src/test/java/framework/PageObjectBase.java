@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class PageObjectBase {
-	public WebDriver driver;
+	protected WebDriver driver;
 
-	public PageObjectBase(WebDriver driver) {
+	protected PageObjectBase(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}

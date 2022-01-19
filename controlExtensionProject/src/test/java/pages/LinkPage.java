@@ -1,4 +1,4 @@
-package controlExtension;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +15,7 @@ public class LinkPage extends PageObjectBase{
 	@FindBy(how = How.ID, using = "linkResponse")
 	private WebElement linkresponse;
 
-	protected LinkPage(WebDriver driver) {
+	public LinkPage(WebDriver driver) {
 		super(driver);
 	}
 

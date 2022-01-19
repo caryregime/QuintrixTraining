@@ -1,4 +1,4 @@
-package controlExtension;
+package pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +18,7 @@ public class SliderPage extends PageObjectBase{
 	@FindBy(how = How.CSS, using = "input[type='range']")
 	private WebElement sliderElement;
 	
-	protected SliderPage(WebDriver driver) {
+	public SliderPage(WebDriver driver) {
 		super(driver);
 	}
 
