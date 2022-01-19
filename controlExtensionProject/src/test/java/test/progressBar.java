@@ -29,4 +29,3 @@ public class progressBar extends TestBase{
 		super.cleanup();
 	}
  }
-}
