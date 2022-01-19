@@ -1,4 +1,4 @@
-package progressBar;
+package framework;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -10,9 +10,4 @@ public abstract class PageObjectBase {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	
-	/*
-	 * protected progressBarPage waitProgressBar() { return
-	 * PageFactory.initElements(driver, progressBarPage.class); }
-	 */
 }
