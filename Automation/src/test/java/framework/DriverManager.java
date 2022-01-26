@@ -4,24 +4,19 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class DriverManager{
 	private WebDriver driver;
-	private String browserType;
-	
+
+	public abstract void createDriver();
+
 	public WebDriver getDriver() {
-		return driver;
+		return this.driver;
 	}
-	
-	public DriverManager(String browserType) {
-		this.browserType = browserType;
+
+	public void quitDriver() {	
+		getDriver().quit();
 	}
 
 	protected void setDriver(WebDriver driver) {
 		this.driver = driver;
 	}
-
-	public void quitDriver() {
-		this.driver.quit();
-	}
-	
-	public abstract void createDriver(String browserType);
 	
 }

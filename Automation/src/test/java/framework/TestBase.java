@@ -2,24 +2,36 @@ package framework;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public abstract class TestBase {
 
-	private ChromeDriver driver;
-	protected WebDriver getDriver() {
+	private WebDriver driver;
+	private DriverManager driverManager;
+	private Settings settings;
+
+	protected WebDriver getDriver() {		
 		return this.driver;
 	}
-	
-	public void setup() {
+
+	protected void setup() {
+		this.settings = Settings.get();
 		launchDriver();
 	}
-	
-	public void cleanup() {
-		this.driver.quit();
+
+	protected void cleanup() {
+		this.driverManager.quitDriver();
+	}
+
+	protected Settings getSettings() {
+		return this.settings;
 	}
 	
-	private void launchDriver() {
+	private void launchDriver() {		
+		String browserType = getSettings().getBrowserType();
+		this.driverManager = DriverManagerFactory.getManager(browserType);
+		this.driverManager.createDriver();
+		this.driver = driverManager.getDriver();
+
 		long pageLoadTimeout = 60;
 		this.driver.manage().timeouts().implicitlyWait(pageLoadTimeout , TimeUnit.SECONDS);
 	}
