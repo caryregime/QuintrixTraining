@@ -144,6 +144,17 @@ public class RestAPITest {
 			Assert.assertEquals(timestamp, getFormattedCurrentTimeStamp());
 	}
 	
+	@Test public void
+	deserialize_single_user() {
+		
+	}
+	
+	
+	@Test public void
+	deserialize_list_user() {
+		
+	}
+	
 	private String getFormattedCurrentTimeStamp() {
 		final Date currentTime = new Date();
 		final SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm");
