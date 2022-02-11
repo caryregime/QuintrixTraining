@@ -19,13 +19,13 @@ public class TestNgTest {
 		driver = new ChromeDriver();
 	}
 	
-	//Parallel Testing
+	//Parallel Testing 
 	@Test
 	public void Test1() {
 		System.out.println("TestNGTest Test 1 done | "+Thread.currentThread().getId() );
 		driver.get(URL);
 	}
-	@Test
+	@Test(priority=1)
 	public void Test2()  {
 		System.out.println("TestNGTest Test 2 done | "+Thread.currentThread().getId());
 		driver.get(URL2);

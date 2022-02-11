@@ -15,45 +15,45 @@ public class TestNgTest2 {
 	private static final String URL = "https://www.gmail.com/";
 	private static final String URL2 = "https://www.yahoomail.com/";
 	WebDriver driver = null;
-	
-	@BeforeSuite
+
+	@BeforeSuite(groups={"regression","smoke"})
 	public void beforesuite() {
 		System.out.println("Test will start");
 	}
-	
-	@BeforeTest
+
+	@BeforeTest(groups={"regression","smoke"})
 	public void setup() {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\Regime Cary\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
 		driver = new ChromeDriver();
 	}
-	
+
 	//Parallel Testing
-	@Test
+	@Test(groups={"regression","smoke"})
 	public void Test1(){
 		System.out.println("TestNGTest2 Test 1 done | "+Thread.currentThread().getId());
 		driver.get(URL);
 	}
-	@Test
+	@Test(groups="regression")
 	public void Test2(){
 		System.out.println("TestNGTest2 Test 2 done | "+Thread.currentThread().getId());
 		driver.get(URL2);
 	}
-	
+
 	//Parameters
-	@Test
+	@Test(groups="smoke")
 	@Parameters("websiteName")
 	public void Test3(String websiteName){
 		System.out.println("TestNGTest2 Test 1 done | "+Thread.currentThread().getId()+" | "+websiteName);
 		driver.get(URL);
 	}
-	
-	@AfterTest
+
+	@AfterTest(groups={"regression","smoke"})
 	public void cleanup() throws Exception {
 		Thread.sleep(3000);
 		driver.quit();
 	}
-	
-	@AfterSuite
+
+	@AfterSuite(groups={"regression","smoke"})
 	public void aftersuite() {
 		System.out.println("Test finish");
 	}
