@@ -1,0 +1,74 @@
+package projectTestNg;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.TestNG;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+public class TestNgTest2 {
+
+	private static final String URL = "https://www.gmail.com/";
+	private static final String URL2 = "https://www.yahoomail.com/";
+	WebDriver driver = null;
+
+	@BeforeSuite(groups={"regression","smoke"})
+	public void beforesuite() {
+		System.out.println("Test will start");
+	}
+
+	@BeforeTest(groups={"regression","smoke"})
+	public void setup() {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\Regime Cary\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+		driver = new ChromeDriver();
+	}
+
+	//Parallel Testing
+	@Test(groups={"regression","smoke"})
+	public void Test1(){
+		System.out.println("TestNGTest2 Test 1 done | "+Thread.currentThread().getId());
+		driver.get(URL);
+	}
+	@Test(groups="regression")
+	public void Test2(){
+		System.out.println("TestNGTest2 Test 2 done | "+Thread.currentThread().getId());
+		driver.get(URL2);
+	}
+
+	//Parameters
+	@Test(groups="smoke")
+	@Parameters("websiteName")
+	public void Test3(String websiteName){
+		System.out.println("TestNGTest2 Test 1 done | "+Thread.currentThread().getId()+" | "+websiteName);
+		driver.get(URL);
+	}
+
+	@AfterTest(groups={"regression","smoke"})
+	public void cleanup() throws Exception {
+		Thread.sleep(3000);
+		driver.quit();
+	}
+
+	@AfterSuite(groups={"regression","smoke"})
+	public void aftersuite() {
+		System.out.println("Test finish");
+	}
+}
+
+/*
+ * BeforeSuite BeforeTest BeforeClass BeforeMethod Test AfterMethod AfterClass
+ * AfterTest AfterSuite
+ * 
+ * BeforeSuite and AfterSuite methods would be executed only once. 
+ * BeforeTest and AfterTest methods would be executed only once per test class. 
+ * BeforeClass and AfterClass methods would be executed only once per class. 
+ * BeforeMethod and AfterMethod methods would be executed for all @Test methods. 
+ * Test method contains actual business logic of making a test pass/ fail. 
+ * If the TestNG class contains more than one methods marked with @BeforeMethod
+ * and @AfterMethod, then all the methods would be executed before and after
+ * every @Test method.
+ */
