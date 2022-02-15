@@ -77,12 +77,6 @@ public class RestAPITest {
 
 		Assert.assertEquals(actualResponse, expectedResponse);
 		
-		/*
-		 * The HTTP 204 No Content success status response code indicates that a request
-		 * has succeeded, but that the client doesn't need to navigate away from its
-		 * current page. This might be used, for example, when implementing
-		 * "save and continue editing" functionality for a wiki site.
-		 */
 	}
 	
 	@Test public void
